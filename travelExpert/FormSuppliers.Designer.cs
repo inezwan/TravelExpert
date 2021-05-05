@@ -30,6 +30,7 @@ namespace travelExpert
         private void InitializeComponent()
         {
             this.listBoxSuppliers = new System.Windows.Forms.ListBox();
+            this.listBoxProducts = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // listBoxSuppliers
@@ -41,12 +42,24 @@ namespace travelExpert
             this.listBoxSuppliers.Name = "listBoxSuppliers";
             this.listBoxSuppliers.Size = new System.Drawing.Size(299, 310);
             this.listBoxSuppliers.TabIndex = 0;
+            this.listBoxSuppliers.SelectedIndexChanged += new System.EventHandler(this.listBoxSuppliers_SelectedIndexChanged);
+            // 
+            // listBoxProducts
+            // 
+            this.listBoxProducts.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.listBoxProducts.FormattingEnabled = true;
+            this.listBoxProducts.ItemHeight = 18;
+            this.listBoxProducts.Location = new System.Drawing.Point(420, 41);
+            this.listBoxProducts.Name = "listBoxProducts";
+            this.listBoxProducts.Size = new System.Drawing.Size(299, 310);
+            this.listBoxProducts.TabIndex = 1;
             // 
             // FormSuppliers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.listBoxProducts);
             this.Controls.Add(this.listBoxSuppliers);
             this.Name = "FormSuppliers";
             this.Text = "FormSuppliers";
@@ -58,5 +71,6 @@ namespace travelExpert
         #endregion
 
         private System.Windows.Forms.ListBox listBoxSuppliers;
+        private System.Windows.Forms.ListBox listBoxProducts;
     }
 }
