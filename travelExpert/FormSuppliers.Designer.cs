@@ -31,6 +31,8 @@ namespace travelExpert
         {
             this.listBoxSuppliers = new System.Windows.Forms.ListBox();
             this.listBoxProducts = new System.Windows.Forms.ListBox();
+            this.btnAddProduct = new System.Windows.Forms.Button();
+            this.btnRemove = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBoxSuppliers
@@ -54,11 +56,33 @@ namespace travelExpert
             this.listBoxProducts.Size = new System.Drawing.Size(299, 310);
             this.listBoxProducts.TabIndex = 1;
             // 
+            // btnAddProduct
+            // 
+            this.btnAddProduct.Location = new System.Drawing.Point(472, 388);
+            this.btnAddProduct.Name = "btnAddProduct";
+            this.btnAddProduct.Size = new System.Drawing.Size(94, 29);
+            this.btnAddProduct.TabIndex = 2;
+            this.btnAddProduct.Text = "Add Product";
+            this.btnAddProduct.UseVisualStyleBackColor = true;
+            this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
+            // 
+            // btnRemove
+            // 
+            this.btnRemove.Location = new System.Drawing.Point(590, 388);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(94, 29);
+            this.btnRemove.TabIndex = 3;
+            this.btnRemove.Text = "Remove";
+            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            // 
             // FormSuppliers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnRemove);
+            this.Controls.Add(this.btnAddProduct);
             this.Controls.Add(this.listBoxProducts);
             this.Controls.Add(this.listBoxSuppliers);
             this.Name = "FormSuppliers";
@@ -72,5 +96,7 @@ namespace travelExpert
 
         private System.Windows.Forms.ListBox listBoxSuppliers;
         private System.Windows.Forms.ListBox listBoxProducts;
+        private System.Windows.Forms.Button btnAddProduct;
+        private System.Windows.Forms.Button btnRemove;
     }
 }
