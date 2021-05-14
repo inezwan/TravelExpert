@@ -17,10 +17,16 @@ namespace travelExpert
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAddSuppliers_Click(object sender, EventArgs e)
         {
             FormSuppliers formSuppliers = new FormSuppliers();
             formSuppliers.ShowDialog();
+        }
+
+        private void btnAddProducts_Click(object sender, EventArgs e)
+        {
+            FormProducts formProducts = new FormProducts();
+            formProducts.ShowDialog();
         }
     }
 }

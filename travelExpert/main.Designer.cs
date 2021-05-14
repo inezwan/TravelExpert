@@ -30,36 +30,45 @@ namespace travelExpert
         private void InitializeComponent()
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAddSuppliers = new System.Windows.Forms.Button();
+            this.btnAddProducts = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(56, 56);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox1.Location = new System.Drawing.Point(49, 42);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(114, 27);
+            this.textBox1.Size = new System.Drawing.Size(100, 23);
             this.textBox1.TabIndex = 0;
             // 
-            // button1
+            // btnAddSuppliers
             // 
-            this.button1.Location = new System.Drawing.Point(56, 284);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(189, 31);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Add Suppliers";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnAddSuppliers.Location = new System.Drawing.Point(49, 213);
+            this.btnAddSuppliers.Name = "btnAddSuppliers";
+            this.btnAddSuppliers.Size = new System.Drawing.Size(165, 23);
+            this.btnAddSuppliers.TabIndex = 1;
+            this.btnAddSuppliers.Text = "Add Suppliers";
+            this.btnAddSuppliers.UseVisualStyleBackColor = true;
+            this.btnAddSuppliers.Click += new System.EventHandler(this.btnAddSuppliers_Click);
+            // 
+            // btnAddProducts
+            // 
+            this.btnAddProducts.Location = new System.Drawing.Point(59, 261);
+            this.btnAddProducts.Name = "btnAddProducts";
+            this.btnAddProducts.Size = new System.Drawing.Size(155, 23);
+            this.btnAddProducts.TabIndex = 2;
+            this.btnAddProducts.Text = "Add Products";
+            this.btnAddProducts.UseVisualStyleBackColor = true;
+            this.btnAddProducts.Click += new System.EventHandler(this.btnAddProducts_Click);
             // 
             // main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(914, 600);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnAddProducts);
+            this.Controls.Add(this.btnAddSuppliers);
             this.Controls.Add(this.textBox1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "main";
             this.Text = "main";
             this.ResumeLayout(false);
@@ -70,7 +79,8 @@ namespace travelExpert
         #endregion
 
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAddSuppliers;
+        private System.Windows.Forms.Button btnAddProducts;
     }
 }
 

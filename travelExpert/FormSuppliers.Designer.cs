@@ -39,10 +39,11 @@ namespace travelExpert
             // 
             this.listBoxSuppliers.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listBoxSuppliers.FormattingEnabled = true;
-            this.listBoxSuppliers.ItemHeight = 18;
-            this.listBoxSuppliers.Location = new System.Drawing.Point(50, 41);
+            this.listBoxSuppliers.ItemHeight = 14;
+            this.listBoxSuppliers.Location = new System.Drawing.Point(45, 87);
+            this.listBoxSuppliers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBoxSuppliers.Name = "listBoxSuppliers";
-            this.listBoxSuppliers.Size = new System.Drawing.Size(299, 310);
+            this.listBoxSuppliers.Size = new System.Drawing.Size(262, 228);
             this.listBoxSuppliers.TabIndex = 0;
             this.listBoxSuppliers.SelectedIndexChanged += new System.EventHandler(this.listBoxSuppliers_SelectedIndexChanged);
             // 
@@ -50,17 +51,19 @@ namespace travelExpert
             // 
             this.listBoxProducts.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listBoxProducts.FormattingEnabled = true;
-            this.listBoxProducts.ItemHeight = 18;
-            this.listBoxProducts.Location = new System.Drawing.Point(420, 41);
+            this.listBoxProducts.ItemHeight = 14;
+            this.listBoxProducts.Location = new System.Drawing.Point(368, 87);
+            this.listBoxProducts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBoxProducts.Name = "listBoxProducts";
-            this.listBoxProducts.Size = new System.Drawing.Size(299, 310);
+            this.listBoxProducts.Size = new System.Drawing.Size(262, 214);
             this.listBoxProducts.TabIndex = 1;
             // 
             // btnAddProduct
             // 
-            this.btnAddProduct.Location = new System.Drawing.Point(472, 388);
+            this.btnAddProduct.Location = new System.Drawing.Point(397, 331);
+            this.btnAddProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddProduct.Name = "btnAddProduct";
-            this.btnAddProduct.Size = new System.Drawing.Size(94, 29);
+            this.btnAddProduct.Size = new System.Drawing.Size(82, 22);
             this.btnAddProduct.TabIndex = 2;
             this.btnAddProduct.Text = "Add Product";
             this.btnAddProduct.UseVisualStyleBackColor = true;
@@ -68,9 +71,10 @@ namespace travelExpert
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(590, 388);
+            this.btnRemove.Location = new System.Drawing.Point(511, 331);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(94, 29);
+            this.btnRemove.Size = new System.Drawing.Size(82, 22);
             this.btnRemove.TabIndex = 3;
             this.btnRemove.Text = "Remove";
             this.btnRemove.UseVisualStyleBackColor = true;
@@ -78,13 +82,14 @@ namespace travelExpert
             // 
             // FormSuppliers
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(700, 420);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnAddProduct);
             this.Controls.Add(this.listBoxProducts);
             this.Controls.Add(this.listBoxSuppliers);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormSuppliers";
             this.Text = "FormSuppliers";
             this.Load += new System.EventHandler(this.FormSuppliers_Load);
