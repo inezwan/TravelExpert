@@ -28,5 +28,12 @@ namespace travelExpert
             FormProducts formProducts = new FormProducts();
             formProducts.ShowDialog();
         }
+
+        private void btnViewPkg_Click(object sender, EventArgs e)
+        {
+            PackagesForm packagesForm = new PackagesForm();
+            packagesForm.ShowDialog();
+
+        }
     }
 }
