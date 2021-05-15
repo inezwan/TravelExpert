@@ -31,35 +31,50 @@ namespace travelExpert
         {
             this.listBoxPackages = new System.Windows.Forms.ListBox();
             this.btnPkgProd = new System.Windows.Forms.Button();
+            this.btnAddNewPackage = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBoxPackages
             // 
             this.listBoxPackages.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listBoxPackages.FormattingEnabled = true;
-            this.listBoxPackages.ItemHeight = 18;
-            this.listBoxPackages.Location = new System.Drawing.Point(40, 25);
+            this.listBoxPackages.ItemHeight = 14;
+            this.listBoxPackages.Location = new System.Drawing.Point(35, 19);
+            this.listBoxPackages.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBoxPackages.Name = "listBoxPackages";
-            this.listBoxPackages.Size = new System.Drawing.Size(1359, 202);
+            this.listBoxPackages.Size = new System.Drawing.Size(1190, 144);
             this.listBoxPackages.TabIndex = 0;
             // 
             // btnPkgProd
             // 
-            this.btnPkgProd.Location = new System.Drawing.Point(650, 279);
+            this.btnPkgProd.Location = new System.Drawing.Point(569, 209);
+            this.btnPkgProd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPkgProd.Name = "btnPkgProd";
-            this.btnPkgProd.Size = new System.Drawing.Size(194, 59);
+            this.btnPkgProd.Size = new System.Drawing.Size(170, 44);
             this.btnPkgProd.TabIndex = 1;
             this.btnPkgProd.Text = "View/Edit Package Products";
             this.btnPkgProd.UseVisualStyleBackColor = true;
             this.btnPkgProd.Click += new System.EventHandler(this.btnPkgProd_Click);
             // 
+            // btnAddNewPackage
+            // 
+            this.btnAddNewPackage.Location = new System.Drawing.Point(297, 209);
+            this.btnAddNewPackage.Name = "btnAddNewPackage";
+            this.btnAddNewPackage.Size = new System.Drawing.Size(129, 44);
+            this.btnAddNewPackage.TabIndex = 2;
+            this.btnAddNewPackage.Text = "Add New Package";
+            this.btnAddNewPackage.UseVisualStyleBackColor = true;
+            this.btnAddNewPackage.Click += new System.EventHandler(this.btnAddNewPackage_Click);
+            // 
             // PackagesForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1435, 450);
+            this.ClientSize = new System.Drawing.Size(1256, 338);
+            this.Controls.Add(this.btnAddNewPackage);
             this.Controls.Add(this.btnPkgProd);
             this.Controls.Add(this.listBoxPackages);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "PackagesForm";
             this.Text = "PackagesForm";
             this.Load += new System.EventHandler(this.PackagesForm_Load);
@@ -71,5 +86,6 @@ namespace travelExpert
 
         private System.Windows.Forms.ListBox listBoxPackages;
         private System.Windows.Forms.Button btnPkgProd;
+        private System.Windows.Forms.Button btnAddNewPackage;
     }
 }

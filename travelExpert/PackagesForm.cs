@@ -41,5 +41,16 @@ namespace travelExpert
                 }
                     };
         }
+
+        private void btnAddNewPackage_Click(object sender, EventArgs e)
+        {
+            FormNewPackage formNewPackage = new FormNewPackage();
+           
+            var r = formNewPackage.ShowDialog();
+            if (r == DialogResult.OK)
+            {
+                MessageBox.Show("Success");
+            }
+        }
     }
 }
