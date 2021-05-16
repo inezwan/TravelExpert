@@ -81,7 +81,13 @@ namespace travelExpert
         }
         private void btnRemovePackage_Click(object sender, EventArgs e)
         {
-
+            if (listBoxPackages.SelectedItem != null) 
+            {
+                package = (Package)listBoxPackages.SelectedItem;
+                context.Packages.Remove(package);
+                context.SaveChanges(true);
+                listBoxPackages.DataSource = context.Packages.ToList();
+            }
         }
     }
 }
