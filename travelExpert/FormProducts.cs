@@ -65,6 +65,17 @@ namespace travelExpert
             displaySuppliers();
         }
 
+        private void btnRemoveSupplier_Click(object sender, EventArgs e)
+        {
+            int supplierId = context.Suppliers.Where(s => s.SupName == (string)listBoxSuppliers.SelectedItem).Select(s => s.SupplierId).ToArray()[0];
+            int productId = context.Products.Where(p => p.ProdName == (string)listBoxProducts.SelectedItem).Select(s => s.ProductId).ToArray()[0];
+            int productSupplierID = context.ProductsSuppliers.Where(p => p.ProductId == productId & p.SupplierId == supplierId).Select(s => s.ProductSupplierId).ToArray()[0];
+            context.ProductsSuppliers.Remove(context.ProductsSuppliers.Find(productSupplierID));
+            context.SaveChanges();
+            listBoxSuppliers.Items.Clear();
+            displaySuppliers();
+        }
+
 
 
 

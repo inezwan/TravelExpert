@@ -78,6 +78,7 @@ namespace travelExpert
             this.btnRemoveSupplier.TabIndex = 5;
             this.btnRemoveSupplier.Text = "Remove Supplier";
             this.btnRemoveSupplier.UseVisualStyleBackColor = true;
+            this.btnRemoveSupplier.Click += new System.EventHandler(this.btnRemoveSupplier_Click);
             // 
             // lblProduct
             // 
@@ -101,7 +102,7 @@ namespace travelExpert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(914, 600);
+            this.ClientSize = new System.Drawing.Size(904, 530);
             this.Controls.Add(this.lblProduct);
             this.Controls.Add(this.lblSuppliers);
             this.Controls.Add(this.btnRemoveSupplier);
