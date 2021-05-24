@@ -16,6 +16,7 @@ namespace travelExpert
         TravelExpertsContext context;
         public string[] SupplierProduct;
         public int productID;
+        public int productSupplierID;
         public ProductSupplier()
         {
             context = new TravelExpertsContext();
@@ -54,7 +55,7 @@ namespace travelExpert
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            context.SaveChanges();
+            //context.SaveChanges();
             listBoxSelectedSupplier.Items.Clear();
             this.Close();
         }
@@ -73,6 +74,7 @@ namespace travelExpert
 
         private void btnAddSupplier_Click(object sender, EventArgs e)
         {
+            //Adds selected item to list box on the right and removes it from listbox on the left
             listBoxSelectedSupplier.Items.Add(listBoxAllSupplier.SelectedItem);
             Object temp = listBoxAllSupplier.SelectedItem;
             listBoxAllSupplier.Items.Remove(temp);
@@ -82,12 +84,27 @@ namespace travelExpert
                 SupplierId = context.Suppliers.Where(s => s.SupName == (string)temp).Select(s => s.SupplierId).ToArray()[0]
             };
             context.ProductsSuppliers.Add(newProductsSupplier);
+            context.SaveChanges();
+            //productSupplierID = newProductsSupplier.ProductSupplierId;
+            int SupplierId = context.Suppliers.Where(s => s.SupName == (string)temp).Select(s => s.SupplierId).ToArray()[0];
+            productSupplierID = context.ProductsSuppliers.Where(p => p.ProductId == productID & p.SupplierId == SupplierId).Select(s => s.ProductSupplierId).ToArray()[0];
+
 
         }
 
         private void btnRemoveSupplier_Click(object sender, EventArgs e)
         {
+            //Removes selected item from list box on the right and adds it to listbox on the left
+            listBoxAllSupplier.Items.Add(listBoxSelectedSupplier.SelectedItem);
+            Object temp = listBoxSelectedSupplier.SelectedItem;
+            listBoxSelectedSupplier.Items.Remove(temp);
 
+            int SupplierId = context.Suppliers.Where(s => s.SupName == (string)temp).Select(s => s.SupplierId).ToArray()[0];
+
+            productSupplierID = context.ProductsSuppliers.Where(p => p.ProductId == productID & p.SupplierId == SupplierId).Select(s => s.ProductSupplierId).ToArray()[0];
+            context.ProductsSuppliers.Remove(context.ProductsSuppliers.Find(productSupplierID));
+            context.SaveChanges();
+            
         }
 
     }

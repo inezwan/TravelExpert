@@ -33,17 +33,18 @@ namespace travelExpert
             this.listBoxProducts = new System.Windows.Forms.ListBox();
             this.btnAddProduct = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
+            this.lblSuppliers = new System.Windows.Forms.Label();
+            this.lblProduct = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // listBoxSuppliers
             // 
             this.listBoxSuppliers.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listBoxSuppliers.FormattingEnabled = true;
-            this.listBoxSuppliers.ItemHeight = 14;
-            this.listBoxSuppliers.Location = new System.Drawing.Point(45, 87);
-            this.listBoxSuppliers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listBoxSuppliers.ItemHeight = 18;
+            this.listBoxSuppliers.Location = new System.Drawing.Point(51, 116);
             this.listBoxSuppliers.Name = "listBoxSuppliers";
-            this.listBoxSuppliers.Size = new System.Drawing.Size(262, 228);
+            this.listBoxSuppliers.Size = new System.Drawing.Size(299, 292);
             this.listBoxSuppliers.TabIndex = 0;
             this.listBoxSuppliers.SelectedIndexChanged += new System.EventHandler(this.listBoxSuppliers_SelectedIndexChanged);
             // 
@@ -51,19 +52,17 @@ namespace travelExpert
             // 
             this.listBoxProducts.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listBoxProducts.FormattingEnabled = true;
-            this.listBoxProducts.ItemHeight = 14;
-            this.listBoxProducts.Location = new System.Drawing.Point(368, 87);
-            this.listBoxProducts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listBoxProducts.ItemHeight = 18;
+            this.listBoxProducts.Location = new System.Drawing.Point(421, 116);
             this.listBoxProducts.Name = "listBoxProducts";
-            this.listBoxProducts.Size = new System.Drawing.Size(262, 214);
+            this.listBoxProducts.Size = new System.Drawing.Size(299, 292);
             this.listBoxProducts.TabIndex = 1;
             // 
             // btnAddProduct
             // 
-            this.btnAddProduct.Location = new System.Drawing.Point(397, 331);
-            this.btnAddProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddProduct.Location = new System.Drawing.Point(454, 441);
             this.btnAddProduct.Name = "btnAddProduct";
-            this.btnAddProduct.Size = new System.Drawing.Size(82, 22);
+            this.btnAddProduct.Size = new System.Drawing.Size(94, 29);
             this.btnAddProduct.TabIndex = 2;
             this.btnAddProduct.Text = "Add Product";
             this.btnAddProduct.UseVisualStyleBackColor = true;
@@ -71,29 +70,48 @@ namespace travelExpert
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(511, 331);
-            this.btnRemove.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnRemove.Location = new System.Drawing.Point(584, 441);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(82, 22);
+            this.btnRemove.Size = new System.Drawing.Size(94, 29);
             this.btnRemove.TabIndex = 3;
             this.btnRemove.Text = "Remove";
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
+            // lblSuppliers
+            // 
+            this.lblSuppliers.AutoSize = true;
+            this.lblSuppliers.Location = new System.Drawing.Point(51, 72);
+            this.lblSuppliers.Name = "lblSuppliers";
+            this.lblSuppliers.Size = new System.Drawing.Size(73, 20);
+            this.lblSuppliers.TabIndex = 4;
+            this.lblSuppliers.Text = "Suppliers:";
+            // 
+            // lblProduct
+            // 
+            this.lblProduct.AutoSize = true;
+            this.lblProduct.Location = new System.Drawing.Point(421, 72);
+            this.lblProduct.Name = "lblProduct";
+            this.lblProduct.Size = new System.Drawing.Size(69, 20);
+            this.lblProduct.TabIndex = 5;
+            this.lblProduct.Text = "Products:";
+            // 
             // FormSuppliers
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(700, 420);
+            this.ClientSize = new System.Drawing.Size(800, 560);
+            this.Controls.Add(this.lblProduct);
+            this.Controls.Add(this.lblSuppliers);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnAddProduct);
             this.Controls.Add(this.listBoxProducts);
             this.Controls.Add(this.listBoxSuppliers);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormSuppliers";
             this.Text = "FormSuppliers";
             this.Load += new System.EventHandler(this.FormSuppliers_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -103,5 +121,7 @@ namespace travelExpert
         private System.Windows.Forms.ListBox listBoxProducts;
         private System.Windows.Forms.Button btnAddProduct;
         private System.Windows.Forms.Button btnRemove;
+        private System.Windows.Forms.Label lblSuppliers;
+        private System.Windows.Forms.Label lblProduct;
     }
 }

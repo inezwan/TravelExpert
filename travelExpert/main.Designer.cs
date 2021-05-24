@@ -45,10 +45,10 @@ namespace travelExpert
             // 
             // btnAddSuppliers
             // 
-            this.btnAddSuppliers.Location = new System.Drawing.Point(56, 284);
+            this.btnAddSuppliers.Location = new System.Drawing.Point(83, 216);
             this.btnAddSuppliers.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAddSuppliers.Name = "btnAddSuppliers";
-            this.btnAddSuppliers.Size = new System.Drawing.Size(189, 31);
+            this.btnAddSuppliers.Size = new System.Drawing.Size(189, 56);
             this.btnAddSuppliers.TabIndex = 1;
             this.btnAddSuppliers.Text = "Add Suppliers";
             this.btnAddSuppliers.UseVisualStyleBackColor = true;
@@ -56,10 +56,10 @@ namespace travelExpert
             // 
             // btnAddProducts
             // 
-            this.btnAddProducts.Location = new System.Drawing.Point(67, 348);
+            this.btnAddProducts.Location = new System.Drawing.Point(83, 272);
             this.btnAddProducts.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAddProducts.Name = "btnAddProducts";
-            this.btnAddProducts.Size = new System.Drawing.Size(177, 31);
+            this.btnAddProducts.Size = new System.Drawing.Size(189, 54);
             this.btnAddProducts.TabIndex = 2;
             this.btnAddProducts.Text = "Add Products";
             this.btnAddProducts.UseVisualStyleBackColor = true;
@@ -67,9 +67,9 @@ namespace travelExpert
             // 
             // btnViewPkg
             // 
-            this.btnViewPkg.Location = new System.Drawing.Point(56, 210);
+            this.btnViewPkg.Location = new System.Drawing.Point(83, 158);
             this.btnViewPkg.Name = "btnViewPkg";
-            this.btnViewPkg.Size = new System.Drawing.Size(114, 29);
+            this.btnViewPkg.Size = new System.Drawing.Size(189, 58);
             this.btnViewPkg.TabIndex = 3;
             this.btnViewPkg.Text = "View Packages";
             this.btnViewPkg.UseVisualStyleBackColor = true;
@@ -79,7 +79,7 @@ namespace travelExpert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(914, 600);
+            this.ClientSize = new System.Drawing.Size(359, 406);
             this.Controls.Add(this.btnViewPkg);
             this.Controls.Add(this.btnAddProducts);
             this.Controls.Add(this.btnAddSuppliers);
