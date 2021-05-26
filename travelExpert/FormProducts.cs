@@ -34,6 +34,8 @@ namespace travelExpert
         private void FormProducts_Load(object sender, EventArgs e)
         {
             DisplayProducts();
+            DisplaySuppliersCombo();
+            
         }
 
         private void listBoxProducts_SelectedIndexChanged(object sender, EventArgs e)
@@ -53,14 +55,60 @@ namespace travelExpert
             listBoxSuppliers.Items.AddRange(SupplierArray);
         }
 
+        private void DisplaySuppliersCombo()
+        {
+            //comboBoxSuppliers.DataSource = allProducts;
+            //comboBoxProducts.DisplayMember = "SupName";
+            //comboBoxProducts.ValueMember = "SupId";
+
+            comboBoxSuppliers.Items.Clear();
+            string[] suppliers = context.Suppliers.Select(s => s.SupName).ToArray();
+
+            int filterSupplierLength = suppliers.Length;
+            for (int i = 0; i < SupplierArray.Length; i++)
+            {
+                for (int j = 0; j < suppliers.Length; j++)
+                {
+                    if (suppliers[j] == SupplierArray[i])
+                    {
+                        suppliers[j] = "";
+                        filterSupplierLength--;
+                    }
+                }
+            }
+            string[] filteredSupplier = new string[filterSupplierLength];
+            int count = 0;
+            foreach (string supplier in suppliers)
+            {
+                if (supplier != "")
+                {
+                    filteredSupplier[count] = supplier;
+                    count++;
+                }
+            }
+            comboBoxSuppliers.Items.AddRange(filteredSupplier);
+        }
+
         private void btnAddSupplier_Click(object sender, EventArgs e)
         {
-            ProductSupplier productSupplier = new ProductSupplier()
+            //ProductSupplier productSupplier = new ProductSupplier()
+            //{
+            //    SupplierProduct= SupplierArray,
+            //    productID=selectedProduct.ProductId
+            //};
+            //productSupplier.ShowDialog();
+
+            listBoxSuppliers.Items.Add(comboBoxSuppliers.SelectedItem);
+            Object temp = comboBoxSuppliers.SelectedItem;
+            comboBoxSuppliers.Items.Remove(temp);
+            ProductsSupplier newProductsSupplier = new ProductsSupplier
             {
-                SupplierProduct= SupplierArray,
-                productID=selectedProduct.ProductId
+                ProductId = selectedProduct.ProductId,
+                SupplierId = context.Suppliers.Where(s => s.SupName == (string)temp).Select(s => s.SupplierId).ToArray()[0]
             };
-            productSupplier.ShowDialog();
+            context.ProductsSuppliers.Add(newProductsSupplier);
+            context.SaveChanges();
+
             listBoxSuppliers.Items.Clear();
             displaySuppliers();
         }
@@ -74,6 +122,7 @@ namespace travelExpert
             context.SaveChanges();
             listBoxSuppliers.Items.Clear();
             displaySuppliers();
+            DisplaySuppliersCombo();
         }
 
 

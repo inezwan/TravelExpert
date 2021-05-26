@@ -35,6 +35,8 @@ namespace travelExpert
             this.btnRemoveSupplier = new System.Windows.Forms.Button();
             this.lblProduct = new System.Windows.Forms.Label();
             this.lblSuppliers = new System.Windows.Forms.Label();
+            this.comboBoxSuppliers = new System.Windows.Forms.ComboBox();
+            this.lblRemove = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // listBoxSuppliers
@@ -60,7 +62,7 @@ namespace travelExpert
             // 
             // btnAddSupplier
             // 
-            this.btnAddSupplier.Location = new System.Drawing.Point(489, 469);
+            this.btnAddSupplier.Location = new System.Drawing.Point(755, 460);
             this.btnAddSupplier.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAddSupplier.Name = "btnAddSupplier";
             this.btnAddSupplier.Size = new System.Drawing.Size(123, 31);
@@ -71,10 +73,10 @@ namespace travelExpert
             // 
             // btnRemoveSupplier
             // 
-            this.btnRemoveSupplier.Location = new System.Drawing.Point(641, 469);
+            this.btnRemoveSupplier.Location = new System.Drawing.Point(739, 508);
             this.btnRemoveSupplier.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnRemoveSupplier.Name = "btnRemoveSupplier";
-            this.btnRemoveSupplier.Size = new System.Drawing.Size(138, 31);
+            this.btnRemoveSupplier.Size = new System.Drawing.Size(139, 31);
             this.btnRemoveSupplier.TabIndex = 5;
             this.btnRemoveSupplier.Text = "Remove Supplier";
             this.btnRemoveSupplier.UseVisualStyleBackColor = true;
@@ -98,11 +100,29 @@ namespace travelExpert
             this.lblSuppliers.TabIndex = 6;
             this.lblSuppliers.Text = "Suppliers:";
             // 
+            // comboBoxSuppliers
+            // 
+            this.comboBoxSuppliers.FormattingEnabled = true;
+            this.comboBoxSuppliers.Location = new System.Drawing.Point(364, 460);
+            this.comboBoxSuppliers.Name = "comboBoxSuppliers";
+            this.comboBoxSuppliers.Size = new System.Drawing.Size(374, 28);
+            this.comboBoxSuppliers.TabIndex = 8;
+            // 
+            // lblRemove
+            // 
+            this.lblRemove.Location = new System.Drawing.Point(364, 491);
+            this.lblRemove.Name = "lblRemove";
+            this.lblRemove.Size = new System.Drawing.Size(369, 58);
+            this.lblRemove.TabIndex = 9;
+            this.lblRemove.Text = "Please select the Supplier from the listbox that you wish to remove:";
+            // 
             // FormProducts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(904, 530);
+            this.ClientSize = new System.Drawing.Size(912, 552);
+            this.Controls.Add(this.lblRemove);
+            this.Controls.Add(this.comboBoxSuppliers);
             this.Controls.Add(this.lblProduct);
             this.Controls.Add(this.lblSuppliers);
             this.Controls.Add(this.btnRemoveSupplier);
@@ -126,5 +146,7 @@ namespace travelExpert
         private System.Windows.Forms.Button btnRemoveSupplier;
         private System.Windows.Forms.Label lblProduct;
         private System.Windows.Forms.Label lblSuppliers;
+        private System.Windows.Forms.ComboBox comboBoxSuppliers;
+        private System.Windows.Forms.Label lblRemove;
     }
 }

@@ -50,7 +50,7 @@ namespace travelExpert
             this.btnAddSuppliers.Name = "btnAddSuppliers";
             this.btnAddSuppliers.Size = new System.Drawing.Size(189, 56);
             this.btnAddSuppliers.TabIndex = 1;
-            this.btnAddSuppliers.Text = "Add Suppliers";
+            this.btnAddSuppliers.Text = "Supplier Products";
             this.btnAddSuppliers.UseVisualStyleBackColor = true;
             this.btnAddSuppliers.Click += new System.EventHandler(this.btnAddSuppliers_Click);
             // 
@@ -61,7 +61,7 @@ namespace travelExpert
             this.btnAddProducts.Name = "btnAddProducts";
             this.btnAddProducts.Size = new System.Drawing.Size(189, 54);
             this.btnAddProducts.TabIndex = 2;
-            this.btnAddProducts.Text = "Add Products";
+            this.btnAddProducts.Text = "Product Suppliers";
             this.btnAddProducts.UseVisualStyleBackColor = true;
             this.btnAddProducts.Click += new System.EventHandler(this.btnAddProducts_Click);
             // 

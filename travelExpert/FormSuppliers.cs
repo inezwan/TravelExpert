@@ -44,6 +44,7 @@ namespace travelExpert
         private void FormSuppliers_Load(object sender, EventArgs e)
         {
             DisplayProducts();
+            DisplayAvailableProducts();
         }
 
         private void listBoxSuppliers_SelectedIndexChanged(object sender, EventArgs e)
@@ -65,11 +66,27 @@ namespace travelExpert
         {
             //ListBox mainListBoxSuppProd = new ListBox();
             //mainListBoxSuppProd.DataSource = context.Products.ToList();
-            selectedSuppProd_Frm suppProd_Frm = new selectedSuppProd_Frm()
-            { prodSupp = pIDs,
-            supplierID=selectedSupplier.SupplierId};
-            suppProd_Frm.ShowDialog();
+            //selectedSuppProd_Frm suppProd_Frm = new selectedSuppProd_Frm()
+            //{ prodSupp = pIDs,
+            //supplierID=selectedSupplier.SupplierId};
+            //suppProd_Frm.ShowDialog();
+
+
+            listBoxProducts.Items.Add(comboBoxProducts.SelectedItem);
+            Object temp = comboBoxProducts.SelectedItem;
+            comboBoxProducts.Items.Remove(temp);
+            ProductsSupplier newProductsSupplier = new ProductsSupplier
+            {
+                ProductId = context.Products.Where(p => p.ProdName == (string)temp).Select(p => p.ProductId).ToArray()[0],
+                SupplierId = selectedSupplier.SupplierId
+            };
+            context.ProductsSuppliers.Add(newProductsSupplier);
+            context.SaveChanges();
+
+
             listBoxProducts.Items.Clear();
+            
+            
             selectedSupplier = (Supplier)listBoxSuppliers.SelectedItem;
 
 
@@ -111,8 +128,39 @@ namespace travelExpert
                      .Join(context.Products, ps => ps.ProductId, p => p.ProductId, (ps, p) => new { ps.ProductId, p.ProdName, ps.SupplierId }).Where(ps => ps.SupplierId == selectedSupplier.SupplierId).Select(p => p.ProdName).ToArray();
 
                 listBoxProducts.Items.AddRange(pIDs);
+                DisplayAvailableProducts();
 
             }
+        }
+
+        private void DisplayAvailableProducts()
+        {
+            comboBoxProducts.Items.Clear();
+            string[] products = context.Products.Select(p => p.ProdName).ToArray();
+
+            int filterProdLength = products.Length;
+            for (int i = 0; i < pIDs.Length; i++)
+            {
+                for (int j = 0; j < products.Length; j++)
+                {
+                    if (products[j] == pIDs[i])
+                    {
+                        products[j] = "";
+                        filterProdLength--;
+                    }
+                }
+            }
+            string[] filteredProd = new string[filterProdLength];
+            int count = 0;
+            foreach (string product in products)
+            {
+                if (product != "")
+                {
+                    filteredProd[count] = product;
+                    count++;
+                }
+            }
+            comboBoxProducts.Items.AddRange(filteredProd);
         }
     }
 }
