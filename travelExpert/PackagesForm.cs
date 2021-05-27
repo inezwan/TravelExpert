@@ -89,6 +89,9 @@ namespace travelExpert
             if (listBoxPackages.SelectedItem != null) 
             {
                 package = (Package)listBoxPackages.SelectedItem;
+                //var myPkg=context.Packages.Where(p)
+                var pkgProdSup = context.PackagesProductsSuppliers.Where(pps => pps.PackageId == package.PackageId).ToList();
+                //var pkgSupp=context.ProductsSuppliers.Join(pkgProdSup,)
                 context.Packages.Remove(package);
                 context.SaveChanges(true);
                 listBoxPackages.DataSource = context.Packages.ToList();
