@@ -32,6 +32,7 @@ namespace travelExpert
             this.listBoxPkgProd = new System.Windows.Forms.ListBox();
             this.comboBoxProducts = new System.Windows.Forms.ComboBox();
             this.listBoxSelectSupp = new System.Windows.Forms.ListBox();
+            this.btnAddProd = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBoxPkgProd
@@ -61,11 +62,22 @@ namespace travelExpert
             this.listBoxSelectSupp.Size = new System.Drawing.Size(282, 202);
             this.listBoxSelectSupp.TabIndex = 2;
             // 
+            // btnAddProd
+            // 
+            this.btnAddProd.Location = new System.Drawing.Point(122, 269);
+            this.btnAddProd.Name = "btnAddProd";
+            this.btnAddProd.Size = new System.Drawing.Size(145, 60);
+            this.btnAddProd.TabIndex = 4;
+            this.btnAddProd.Text = "Add Product/Supplier";
+            this.btnAddProd.UseVisualStyleBackColor = true;
+            this.btnAddProd.Click += new System.EventHandler(this.btnAddProd_Click);
+            // 
             // FormPkgProductscs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnAddProd);
             this.Controls.Add(this.listBoxSelectSupp);
             this.Controls.Add(this.comboBoxProducts);
             this.Controls.Add(this.listBoxPkgProd);
@@ -82,5 +94,6 @@ namespace travelExpert
         private System.Windows.Forms.ListBox listBoxPkgProd;
         private System.Windows.Forms.ComboBox comboBoxProducts;
         private System.Windows.Forms.ListBox listBoxSelectSupp;
+        private System.Windows.Forms.Button btnAddProd;
     }
 }

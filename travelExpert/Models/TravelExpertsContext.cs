@@ -219,6 +219,8 @@ namespace travelExpert.Models
                 entity.HasKey(e => e.ProductId)
                     .HasName("aaaaaProducts_PK")
                     .IsClustered(false);
+                
+                    
             });
 
             modelBuilder.Entity<ProductsSupplier>(entity =>
@@ -232,7 +234,7 @@ namespace travelExpert.Models
                 entity.HasOne(d => d.Product)
                     .WithMany(p => p.ProductsSuppliers)
                     .HasForeignKey(d => d.ProductId)
-                    .HasConstraintName("Products_Suppliers_FK00");
+                    .HasConstraintName("Products_Suppliers_FK00").OnDelete(DeleteBehavior.Cascade);
 
                 entity.HasOne(d => d.Supplier)
                     .WithMany(p => p.ProductsSuppliers)

@@ -17,6 +17,7 @@ namespace travelExpert
         private Supplier selectedSupplier = new Supplier();
         private Package package = new Package();
         public string[] pIDs;
+        private PackagesProductsSupplier pckProdSupp = new PackagesProductsSupplier();
 
         public PackagesForm()
         {
@@ -39,6 +40,10 @@ namespace travelExpert
                 if (r == DialogResult.OK)
                 {
                     MessageBox.Show("Success");
+                    pckProdSupp = formPkgProductscs.newPackagesProductsSupplier;
+                    context.PackagesProductsSuppliers.Add(pckProdSupp);
+
+                    context.SaveChanges();
                 }
                     };
         }

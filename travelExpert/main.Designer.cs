@@ -29,23 +29,16 @@ namespace travelExpert
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnAddSuppliers = new System.Windows.Forms.Button();
             this.btnAddProducts = new System.Windows.Forms.Button();
             this.btnViewPkg = new System.Windows.Forms.Button();
+            this.btnProducts = new System.Windows.Forms.Button();
+            this.btnSuppliers = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(56, 56);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(114, 27);
-            this.textBox1.TabIndex = 0;
             // 
             // btnAddSuppliers
             // 
-            this.btnAddSuppliers.Location = new System.Drawing.Point(83, 216);
+            this.btnAddSuppliers.Location = new System.Drawing.Point(93, 93);
             this.btnAddSuppliers.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAddSuppliers.Name = "btnAddSuppliers";
             this.btnAddSuppliers.Size = new System.Drawing.Size(189, 56);
@@ -56,7 +49,7 @@ namespace travelExpert
             // 
             // btnAddProducts
             // 
-            this.btnAddProducts.Location = new System.Drawing.Point(83, 272);
+            this.btnAddProducts.Location = new System.Drawing.Point(93, 149);
             this.btnAddProducts.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAddProducts.Name = "btnAddProducts";
             this.btnAddProducts.Size = new System.Drawing.Size(189, 54);
@@ -67,7 +60,7 @@ namespace travelExpert
             // 
             // btnViewPkg
             // 
-            this.btnViewPkg.Location = new System.Drawing.Point(83, 158);
+            this.btnViewPkg.Location = new System.Drawing.Point(93, 35);
             this.btnViewPkg.Name = "btnViewPkg";
             this.btnViewPkg.Size = new System.Drawing.Size(189, 58);
             this.btnViewPkg.TabIndex = 3;
@@ -75,29 +68,51 @@ namespace travelExpert
             this.btnViewPkg.UseVisualStyleBackColor = true;
             this.btnViewPkg.Click += new System.EventHandler(this.btnViewPkg_Click);
             // 
+            // btnProducts
+            // 
+            this.btnProducts.Location = new System.Drawing.Point(93, 211);
+            this.btnProducts.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnProducts.Name = "btnProducts";
+            this.btnProducts.Size = new System.Drawing.Size(189, 54);
+            this.btnProducts.TabIndex = 4;
+            this.btnProducts.Text = "Products";
+            this.btnProducts.UseVisualStyleBackColor = true;
+            this.btnProducts.Click += new System.EventHandler(this.btnProducts_Click);
+            // 
+            // btnSuppliers
+            // 
+            this.btnSuppliers.Location = new System.Drawing.Point(93, 273);
+            this.btnSuppliers.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSuppliers.Name = "btnSuppliers";
+            this.btnSuppliers.Size = new System.Drawing.Size(189, 54);
+            this.btnSuppliers.TabIndex = 5;
+            this.btnSuppliers.Text = "Suppliers";
+            this.btnSuppliers.UseVisualStyleBackColor = true;
+            this.btnSuppliers.Click += new System.EventHandler(this.btnSuppliers_Click);
+            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(359, 406);
+            this.Controls.Add(this.btnSuppliers);
+            this.Controls.Add(this.btnProducts);
             this.Controls.Add(this.btnViewPkg);
             this.Controls.Add(this.btnAddProducts);
             this.Controls.Add(this.btnAddSuppliers);
-            this.Controls.Add(this.textBox1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "main";
             this.Text = "main";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnAddSuppliers;
         private System.Windows.Forms.Button btnAddProducts;
         private System.Windows.Forms.Button btnViewPkg;
+        private System.Windows.Forms.Button btnProducts;
+        private System.Windows.Forms.Button btnSuppliers;
     }
 }
 
