@@ -26,12 +26,11 @@ namespace travelExpert.Models
         public virtual ICollection<ProductsSupplier> ProductsSuppliers { get; set; }
         [InverseProperty(nameof(SupplierContact.Supplier))]
         public virtual ICollection<SupplierContact> SupplierContacts { get; set; }
-
         public override string ToString()
         {
             //return String.Format(frmdet, ProductCode, Name, Version, ReleaseDate);
-            return SupplierId.ToString().PadRight(15) + SupName.PadRight(20);
-           
+            return SupName;
+
         }
     }
 }
