@@ -37,7 +37,6 @@ namespace travelExpert.Models
         public virtual ICollection<BookingDetail> BookingDetails { get; set; }
         [InverseProperty(nameof(PackagesProductsSupplier.ProductSupplier))]
         public virtual ICollection<PackagesProductsSupplier> PackagesProductsSuppliers { get; set; }
-
         public override string ToString()
         {
             return Supplier.SupName.ToString();
