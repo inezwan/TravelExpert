@@ -112,6 +112,7 @@ namespace travelExpert
             // 
             // txtPackageID
             // 
+            this.txtPackageID.BackColor = System.Drawing.SystemColors.Control;
             this.txtPackageID.Location = new System.Drawing.Point(146, 20);
             this.txtPackageID.Name = "txtPackageID";
             this.txtPackageID.ReadOnly = true;

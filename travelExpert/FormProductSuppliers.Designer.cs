@@ -42,30 +42,27 @@ namespace travelExpert
             // listBoxSuppliers
             // 
             this.listBoxSuppliers.FormattingEnabled = true;
-            this.listBoxSuppliers.ItemHeight = 20;
-            this.listBoxSuppliers.Location = new System.Drawing.Point(364, 78);
-            this.listBoxSuppliers.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.listBoxSuppliers.ItemHeight = 15;
+            this.listBoxSuppliers.Location = new System.Drawing.Point(318, 58);
             this.listBoxSuppliers.Name = "listBoxSuppliers";
-            this.listBoxSuppliers.Size = new System.Drawing.Size(514, 364);
+            this.listBoxSuppliers.Size = new System.Drawing.Size(450, 274);
             this.listBoxSuppliers.TabIndex = 0;
             // 
             // listBoxProducts
             // 
             this.listBoxProducts.FormattingEnabled = true;
-            this.listBoxProducts.ItemHeight = 20;
-            this.listBoxProducts.Location = new System.Drawing.Point(46, 78);
-            this.listBoxProducts.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.listBoxProducts.ItemHeight = 15;
+            this.listBoxProducts.Location = new System.Drawing.Point(40, 58);
             this.listBoxProducts.Name = "listBoxProducts";
-            this.listBoxProducts.Size = new System.Drawing.Size(265, 364);
+            this.listBoxProducts.Size = new System.Drawing.Size(232, 274);
             this.listBoxProducts.TabIndex = 1;
             this.listBoxProducts.SelectedIndexChanged += new System.EventHandler(this.listBoxProducts_SelectedIndexChanged);
             // 
             // btnAddSupplier
             // 
-            this.btnAddSupplier.Location = new System.Drawing.Point(755, 460);
-            this.btnAddSupplier.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAddSupplier.Location = new System.Drawing.Point(661, 345);
             this.btnAddSupplier.Name = "btnAddSupplier";
-            this.btnAddSupplier.Size = new System.Drawing.Size(123, 31);
+            this.btnAddSupplier.Size = new System.Drawing.Size(108, 23);
             this.btnAddSupplier.TabIndex = 4;
             this.btnAddSupplier.Text = "Add Supplier";
             this.btnAddSupplier.UseVisualStyleBackColor = true;
@@ -73,10 +70,9 @@ namespace travelExpert
             // 
             // btnRemoveSupplier
             // 
-            this.btnRemoveSupplier.Location = new System.Drawing.Point(739, 508);
-            this.btnRemoveSupplier.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnRemoveSupplier.Location = new System.Drawing.Point(647, 381);
             this.btnRemoveSupplier.Name = "btnRemoveSupplier";
-            this.btnRemoveSupplier.Size = new System.Drawing.Size(139, 31);
+            this.btnRemoveSupplier.Size = new System.Drawing.Size(122, 23);
             this.btnRemoveSupplier.TabIndex = 5;
             this.btnRemoveSupplier.Text = "Remove Supplier";
             this.btnRemoveSupplier.UseVisualStyleBackColor = true;
@@ -85,42 +81,43 @@ namespace travelExpert
             // lblProduct
             // 
             this.lblProduct.AutoSize = true;
-            this.lblProduct.Location = new System.Drawing.Point(46, 35);
+            this.lblProduct.Location = new System.Drawing.Point(40, 26);
             this.lblProduct.Name = "lblProduct";
-            this.lblProduct.Size = new System.Drawing.Size(69, 20);
+            this.lblProduct.Size = new System.Drawing.Size(57, 15);
             this.lblProduct.TabIndex = 7;
             this.lblProduct.Text = "Products:";
             // 
             // lblSuppliers
             // 
             this.lblSuppliers.AutoSize = true;
-            this.lblSuppliers.Location = new System.Drawing.Point(364, 35);
+            this.lblSuppliers.Location = new System.Drawing.Point(318, 26);
             this.lblSuppliers.Name = "lblSuppliers";
-            this.lblSuppliers.Size = new System.Drawing.Size(73, 20);
+            this.lblSuppliers.Size = new System.Drawing.Size(58, 15);
             this.lblSuppliers.TabIndex = 6;
             this.lblSuppliers.Text = "Suppliers:";
             // 
             // comboBoxSuppliers
             // 
             this.comboBoxSuppliers.FormattingEnabled = true;
-            this.comboBoxSuppliers.Location = new System.Drawing.Point(364, 460);
+            this.comboBoxSuppliers.Location = new System.Drawing.Point(318, 345);
+            this.comboBoxSuppliers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxSuppliers.Name = "comboBoxSuppliers";
-            this.comboBoxSuppliers.Size = new System.Drawing.Size(374, 28);
+            this.comboBoxSuppliers.Size = new System.Drawing.Size(328, 23);
             this.comboBoxSuppliers.TabIndex = 8;
             // 
             // lblRemove
             // 
-            this.lblRemove.Location = new System.Drawing.Point(364, 491);
+            this.lblRemove.Location = new System.Drawing.Point(318, 368);
             this.lblRemove.Name = "lblRemove";
-            this.lblRemove.Size = new System.Drawing.Size(369, 58);
+            this.lblRemove.Size = new System.Drawing.Size(323, 44);
             this.lblRemove.TabIndex = 9;
             this.lblRemove.Text = "Please select the Supplier from the listbox that you wish to remove:";
             // 
-            // FormProducts
+            // FormProductSuppliers
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(912, 552);
+            this.ClientSize = new System.Drawing.Size(798, 414);
             this.Controls.Add(this.lblRemove);
             this.Controls.Add(this.comboBoxSuppliers);
             this.Controls.Add(this.lblProduct);
@@ -129,8 +126,8 @@ namespace travelExpert
             this.Controls.Add(this.btnAddSupplier);
             this.Controls.Add(this.listBoxProducts);
             this.Controls.Add(this.listBoxSuppliers);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "FormProducts";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "FormProductSuppliers";
             this.Text = "FormProducts";
             this.Load += new System.EventHandler(this.FormProducts_Load);
             this.ResumeLayout(false);

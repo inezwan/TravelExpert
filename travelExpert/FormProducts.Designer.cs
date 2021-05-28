@@ -43,18 +43,21 @@ namespace travelExpert
             this.groupBox1.Controls.Add(this.btnAddProduct);
             this.groupBox1.Controls.Add(this.textNewProd);
             this.groupBox1.Controls.Add(this.listBoxProducts);
-            this.groupBox1.Location = new System.Drawing.Point(12, 10);
+            this.groupBox1.Location = new System.Drawing.Point(10, 8);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(443, 483);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(388, 362);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Products";
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(173, 425);
+            this.btnRemove.Location = new System.Drawing.Point(151, 319);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(143, 40);
+            this.btnRemove.Size = new System.Drawing.Size(125, 30);
             this.btnRemove.TabIndex = 3;
             this.btnRemove.Text = "Remove Product";
             this.btnRemove.UseVisualStyleBackColor = true;
@@ -62,9 +65,10 @@ namespace travelExpert
             // 
             // btnAddProduct
             // 
-            this.btnAddProduct.Location = new System.Drawing.Point(322, 368);
+            this.btnAddProduct.Location = new System.Drawing.Point(282, 276);
+            this.btnAddProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddProduct.Name = "btnAddProduct";
-            this.btnAddProduct.Size = new System.Drawing.Size(112, 38);
+            this.btnAddProduct.Size = new System.Drawing.Size(98, 28);
             this.btnAddProduct.TabIndex = 2;
             this.btnAddProduct.Text = "Add Product";
             this.btnAddProduct.UseVisualStyleBackColor = true;
@@ -72,27 +76,30 @@ namespace travelExpert
             // 
             // textNewProd
             // 
-            this.textNewProd.Location = new System.Drawing.Point(30, 368);
+            this.textNewProd.Location = new System.Drawing.Point(26, 276);
+            this.textNewProd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textNewProd.Name = "textNewProd";
-            this.textNewProd.Size = new System.Drawing.Size(254, 27);
+            this.textNewProd.Size = new System.Drawing.Size(223, 23);
             this.textNewProd.TabIndex = 1;
             // 
             // listBoxProducts
             // 
             this.listBoxProducts.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listBoxProducts.FormattingEnabled = true;
-            this.listBoxProducts.ItemHeight = 18;
-            this.listBoxProducts.Location = new System.Drawing.Point(28, 28);
+            this.listBoxProducts.ItemHeight = 14;
+            this.listBoxProducts.Location = new System.Drawing.Point(24, 21);
+            this.listBoxProducts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBoxProducts.Name = "listBoxProducts";
-            this.listBoxProducts.Size = new System.Drawing.Size(319, 328);
+            this.listBoxProducts.Size = new System.Drawing.Size(280, 242);
             this.listBoxProducts.TabIndex = 0;
             // 
             // FormProducts
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(490, 505);
+            this.ClientSize = new System.Drawing.Size(429, 379);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormProducts";
             this.Text = "FormProducts";
             this.Load += new System.EventHandler(this.FormProducts_Load);
