@@ -78,7 +78,7 @@ namespace travelExpert
             if (r == DialogResult.OK)
             {
                 package = formNewPackage.MyNewPackage;
-                context.Packages.Add(package);
+                context.Packages.Update(package);
                 context.SaveChanges();
                 MessageBox.Show("Entry Data Saved!");
                 // listBoxPackages.Items.Clear();
