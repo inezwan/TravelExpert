@@ -19,6 +19,7 @@ namespace travelExpert
         public Supplier[] suppliers;
         public string[] prodSupp;
         public PackagesProductsSupplier newPackagesProductsSupplier;
+        public int selectedProductId;
 
         public FormPkgProductscs()
         {
@@ -51,7 +52,7 @@ namespace travelExpert
 
             }
 
-            comboBoxProducts.DataSource = context.Products.ToList();
+            comboBoxProducts.DataSource = allProducts;
             comboBoxProducts.DisplayMember = "ProdName";
             comboBoxProducts.ValueMember = "ProductId";
             //if (comboBoxProducts.SelectedItem != null)
@@ -66,16 +67,18 @@ namespace travelExpert
         {
             //listBoxSelectSupp.Items.Clear();
             Product selectedProd = (Product)comboBoxProducts.SelectedItem;
-            int selectedProductId = selectedProd.ProductId;
+            selectedProductId = selectedProd.ProductId;
 
-            listBoxSelectSupp.DataSource = context.ProductsSuppliers.Where(ps => ps.ProductId ==selectedProductId).ToList();
+            listBoxSelectSupp.DataSource = context.ProductsSuppliers.Where(ps => ps.ProductId ==selectedProductId).Join(context.Suppliers,p=>p.SupplierId,s=>s.SupplierId, (p,s)=>new Supplier{SupName=s.SupName, SupplierId=s.SupplierId}).ToList();
            
             //listBoxSelectSupp.Items.Add("Hello");
         }
 
         private void btnAddProd_Click(object sender, EventArgs e)
         {
-            ProductsSupplier selectedProdSupp = (ProductsSupplier)listBoxSelectSupp.SelectedItem;
+            Supplier selectSupplier=(Supplier)listBoxSelectSupp.SelectedItem;
+            var selectedProdSupp = context.ProductsSuppliers.Where(ps => ps.ProductId == selectedProductId).Where(ps => ps.SupplierId == selectSupplier.SupplierId).Single();
+            //Where(ps => ps.SupplierId == selectSupplier.SupplierId)
             int selectedProductSupplierId = selectedProdSupp.ProductSupplierId;
             newPackagesProductsSupplier = new PackagesProductsSupplier
             {
@@ -83,7 +86,7 @@ namespace travelExpert
                 ProductSupplierId = selectedProductSupplierId
             };
 
-            //context.PackagesProductsSuppliers.Add(newPackagesProductsSupplier);
+
             listBoxPkgProd.Items.Add(comboBoxProducts.SelectedItem.ToString().PadRight(20) + listBoxSelectSupp.SelectedItem.ToString().PadRight(30));
             DialogResult = DialogResult.OK;
         }

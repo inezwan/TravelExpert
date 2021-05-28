@@ -36,6 +36,7 @@ namespace travelExpert
             {
                 FormPkgProductscs formPkgProductscs = new FormPkgProductscs()
                 { selectedPackage = (Package)listBoxPackages.SelectedItem };
+
                 var r = formPkgProductscs.ShowDialog();
                 if (r == DialogResult.OK)
                 {
@@ -45,7 +46,7 @@ namespace travelExpert
 
                     context.SaveChanges();
                 }
-                    };
+            };
         }
 
         private void btnAddNewPackage_Click(object sender, EventArgs e)
@@ -77,7 +78,7 @@ namespace travelExpert
             if (r == DialogResult.OK)
             {
                 package = formNewPackage.MyNewPackage;
-                //context.Packages.Add(package);
+                context.Packages.Add(package);
                 context.SaveChanges();
                 MessageBox.Show("Entry Data Saved!");
                 // listBoxPackages.Items.Clear();
@@ -89,6 +90,9 @@ namespace travelExpert
             if (listBoxPackages.SelectedItem != null) 
             {
                 package = (Package)listBoxPackages.SelectedItem;
+                //var myPkg=context.Packages.Where(p)
+                var pkgProdSup = context.PackagesProductsSuppliers.Where(pps => pps.PackageId == package.PackageId).ToList();
+                //var pkgSupp=context.ProductsSuppliers.Join(pkgProdSup,)
                 context.Packages.Remove(package);
                 context.SaveChanges(true);
                 listBoxPackages.DataSource = context.Packages.ToList();
