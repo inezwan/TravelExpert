@@ -29,102 +29,85 @@ namespace travelExpert
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBoxSuppliers = new System.Windows.Forms.ListBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnRemove = new System.Windows.Forms.Button();
+            this.btnAddProduct = new System.Windows.Forms.Button();
+            this.textNewProd = new System.Windows.Forms.TextBox();
             this.listBoxProducts = new System.Windows.Forms.ListBox();
-            this.btnAddSupplier = new System.Windows.Forms.Button();
-            this.btnRemoveSupplier = new System.Windows.Forms.Button();
-            this.lblProduct = new System.Windows.Forms.Label();
-            this.lblSuppliers = new System.Windows.Forms.Label();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // listBoxSuppliers
+            // groupBox1
             // 
-            this.listBoxSuppliers.FormattingEnabled = true;
-            this.listBoxSuppliers.ItemHeight = 20;
-            this.listBoxSuppliers.Location = new System.Drawing.Point(364, 78);
-            this.listBoxSuppliers.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.listBoxSuppliers.Name = "listBoxSuppliers";
-            this.listBoxSuppliers.Size = new System.Drawing.Size(514, 364);
-            this.listBoxSuppliers.TabIndex = 0;
+            this.groupBox1.Controls.Add(this.btnRemove);
+            this.groupBox1.Controls.Add(this.btnAddProduct);
+            this.groupBox1.Controls.Add(this.textNewProd);
+            this.groupBox1.Controls.Add(this.listBoxProducts);
+            this.groupBox1.Location = new System.Drawing.Point(12, 10);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(443, 483);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Products";
+            // 
+            // btnRemove
+            // 
+            this.btnRemove.Location = new System.Drawing.Point(173, 425);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(143, 40);
+            this.btnRemove.TabIndex = 3;
+            this.btnRemove.Text = "Remove Product";
+            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            // 
+            // btnAddProduct
+            // 
+            this.btnAddProduct.Location = new System.Drawing.Point(322, 368);
+            this.btnAddProduct.Name = "btnAddProduct";
+            this.btnAddProduct.Size = new System.Drawing.Size(112, 38);
+            this.btnAddProduct.TabIndex = 2;
+            this.btnAddProduct.Text = "Add Product";
+            this.btnAddProduct.UseVisualStyleBackColor = true;
+            this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
+            // 
+            // textNewProd
+            // 
+            this.textNewProd.Location = new System.Drawing.Point(30, 368);
+            this.textNewProd.Name = "textNewProd";
+            this.textNewProd.Size = new System.Drawing.Size(254, 27);
+            this.textNewProd.TabIndex = 1;
             // 
             // listBoxProducts
             // 
+            this.listBoxProducts.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listBoxProducts.FormattingEnabled = true;
-            this.listBoxProducts.ItemHeight = 20;
-            this.listBoxProducts.Location = new System.Drawing.Point(46, 78);
-            this.listBoxProducts.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.listBoxProducts.ItemHeight = 18;
+            this.listBoxProducts.Location = new System.Drawing.Point(28, 28);
             this.listBoxProducts.Name = "listBoxProducts";
-            this.listBoxProducts.Size = new System.Drawing.Size(265, 364);
-            this.listBoxProducts.TabIndex = 1;
-            this.listBoxProducts.SelectedIndexChanged += new System.EventHandler(this.listBoxProducts_SelectedIndexChanged);
-            // 
-            // btnAddSupplier
-            // 
-            this.btnAddSupplier.Location = new System.Drawing.Point(489, 469);
-            this.btnAddSupplier.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnAddSupplier.Name = "btnAddSupplier";
-            this.btnAddSupplier.Size = new System.Drawing.Size(123, 31);
-            this.btnAddSupplier.TabIndex = 4;
-            this.btnAddSupplier.Text = "Add Supplier";
-            this.btnAddSupplier.UseVisualStyleBackColor = true;
-            this.btnAddSupplier.Click += new System.EventHandler(this.btnAddSupplier_Click);
-            // 
-            // btnRemoveSupplier
-            // 
-            this.btnRemoveSupplier.Location = new System.Drawing.Point(641, 469);
-            this.btnRemoveSupplier.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnRemoveSupplier.Name = "btnRemoveSupplier";
-            this.btnRemoveSupplier.Size = new System.Drawing.Size(138, 31);
-            this.btnRemoveSupplier.TabIndex = 5;
-            this.btnRemoveSupplier.Text = "Remove Supplier";
-            this.btnRemoveSupplier.UseVisualStyleBackColor = true;
-            this.btnRemoveSupplier.Click += new System.EventHandler(this.btnRemoveSupplier_Click);
-            // 
-            // lblProduct
-            // 
-            this.lblProduct.AutoSize = true;
-            this.lblProduct.Location = new System.Drawing.Point(46, 35);
-            this.lblProduct.Name = "lblProduct";
-            this.lblProduct.Size = new System.Drawing.Size(69, 20);
-            this.lblProduct.TabIndex = 7;
-            this.lblProduct.Text = "Products:";
-            // 
-            // lblSuppliers
-            // 
-            this.lblSuppliers.AutoSize = true;
-            this.lblSuppliers.Location = new System.Drawing.Point(364, 35);
-            this.lblSuppliers.Name = "lblSuppliers";
-            this.lblSuppliers.Size = new System.Drawing.Size(73, 20);
-            this.lblSuppliers.TabIndex = 6;
-            this.lblSuppliers.Text = "Suppliers:";
+            this.listBoxProducts.Size = new System.Drawing.Size(319, 328);
+            this.listBoxProducts.TabIndex = 0;
             // 
             // FormProducts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(904, 530);
-            this.Controls.Add(this.lblProduct);
-            this.Controls.Add(this.lblSuppliers);
-            this.Controls.Add(this.btnRemoveSupplier);
-            this.Controls.Add(this.btnAddSupplier);
-            this.Controls.Add(this.listBoxProducts);
-            this.Controls.Add(this.listBoxSuppliers);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ClientSize = new System.Drawing.Size(490, 505);
+            this.Controls.Add(this.groupBox1);
             this.Name = "FormProducts";
             this.Text = "FormProducts";
             this.Load += new System.EventHandler(this.FormProducts_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBoxSuppliers;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnRemove;
+        private System.Windows.Forms.Button btnAddProduct;
+        private System.Windows.Forms.TextBox textNewProd;
         private System.Windows.Forms.ListBox listBoxProducts;
-        private System.Windows.Forms.Button btnAddSupplier;
-        private System.Windows.Forms.Button btnRemoveSupplier;
-        private System.Windows.Forms.Label lblProduct;
-        private System.Windows.Forms.Label lblSuppliers;
     }
 }

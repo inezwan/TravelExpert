@@ -36,11 +36,10 @@ namespace travelExpert.Models
         public virtual ICollection<Booking> Bookings { get; set; }
         [InverseProperty(nameof(PackagesProductsSupplier.Package))]
         public virtual ICollection<PackagesProductsSupplier> PackagesProductsSuppliers { get; set; }
-
         public override string ToString()
         {
-            return PackageId.ToString().PadRight(5) + PkgName.PadRight(20)+PkgDesc.PadRight(50)+PkgStartDate.ToString().PadRight(25)+PkgEndDate.ToString().PadRight(25)
-                +PkgBasePrice.ToString("C2").PadRight(10)+PkgAgencyCommission.ToString().PadRight(5);
+            return PackageId.ToString().PadRight(5) + PkgName.PadRight(20) + PkgDesc.PadRight(50) + PkgStartDate.ToString().PadRight(25) + PkgEndDate.ToString().PadRight(25)
+                + PkgBasePrice.ToString("C2").PadRight(10) + PkgAgencyCommission.ToString().PadRight(5);
         }
     }
 }

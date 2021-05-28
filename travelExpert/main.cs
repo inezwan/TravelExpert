@@ -19,13 +19,13 @@ namespace travelExpert
 
         private void btnAddSuppliers_Click(object sender, EventArgs e)
         {
-            FormSuppliers formSuppliers = new FormSuppliers();
+            FormSupplierProducts formSuppliers = new FormSupplierProducts();
             formSuppliers.ShowDialog();
         }
 
         private void btnAddProducts_Click(object sender, EventArgs e)
         {
-            FormProducts formProducts = new FormProducts();
+            FormProductSuppliers formProducts = new FormProductSuppliers();
             formProducts.ShowDialog();
         }
 
@@ -34,6 +34,18 @@ namespace travelExpert
             PackagesForm packagesForm = new PackagesForm();
             packagesForm.ShowDialog();
 
+        }
+
+        private void btnProducts_Click(object sender, EventArgs e)
+        {
+            FormProducts formProducts = new FormProducts();
+            formProducts.ShowDialog();
+        }
+
+        private void btnSuppliers_Click(object sender, EventArgs e)
+        {
+            FormSuppliers formSuppliers = new FormSuppliers();
+            formSuppliers.ShowDialog();
         }
     }
 }

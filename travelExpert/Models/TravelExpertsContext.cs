@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -43,9 +42,8 @@ namespace travelExpert.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["TravelExperts"].
-                    ConnectionString).UseLazyLoadingProxies();
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=TravelExperts;Integrated Security=True");
             }
         }
 
@@ -204,7 +202,6 @@ namespace travelExpert.Models
                 entity.HasOne(d => d.Package)
                     .WithMany(p => p.PackagesProductsSuppliers)
                     .HasForeignKey(d => d.PackageId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("Packages_Products_Supplie_FK00");
 
                 entity.HasOne(d => d.ProductSupplier)
@@ -283,6 +280,7 @@ namespace travelExpert.Models
                 entity.HasOne(d => d.Supplier)
                     .WithMany(p => p.SupplierContacts)
                     .HasForeignKey(d => d.SupplierId)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("SupplierContacts_FK01");
             });
 

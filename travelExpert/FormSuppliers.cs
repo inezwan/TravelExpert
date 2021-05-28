@@ -8,109 +8,53 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using travelExpert.Models;
-using Microsoft.Data.SqlClient;
-using Microsoft.EntityFrameworkCore;
-
 
 namespace travelExpert
 {
     public partial class FormSuppliers : Form
     {
         TravelExpertsContext context;
-        private Supplier selectedSupplier = new Supplier();
-        public string [] pIDs;
         public FormSuppliers()
         {
-            InitializeComponent();
-        }
-
-        private void DisplayProducts()
-        {
-            //lblHeader.Text = "ProductCode".PadRight(25) + "Name".PadRight(35) + "Version".PadRight(10) + "ReleaseDate".PadRight(10);
             context = new TravelExpertsContext();
-            listBoxSuppliers.DataSource = context.Suppliers.ToList();
-            
-
-//            Object[] cIds = context.Customers.Select(c => (Object)c.CustomerId).ToArray();
-//            customerIdCBox.Items.AddRange(cIds);
-
-//            var invoices =
-//invoiceList.Join(customerList, i => i.CustomerID, c => c.CustomerID,
-//(i, c) => new { c.Name, i.InvoiceDate, i.InvoiceTotal }).Where(ci => ci.InvoiceTotal > 150).OrderBy(ci => ci.Name).ThenBy(ci => ci.InvoiceDate)
-//.Select(ci => new { ci.Name, ci.InvoiceTotal });
-
-        }
-
-        private void FormSuppliers_Load(object sender, EventArgs e)
-        {
-            DisplayProducts();
-        }
-
-        private void listBoxSuppliers_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            listBoxProducts.Items.Clear();
-            selectedSupplier = (Supplier)listBoxSuppliers.SelectedItem;
-
-
-            //Object[] pIDs = context.Suppliers.Join(context.ProductsSuppliers, s => s.SupplierId, p => p.SupplierId, (s, p) => new { p.ProductId, s.SupplierId })
-            //    .Where(ps => ps.SupplierId == selectedSupplier.SupplierId).Select(ps => new { ps.ProductId, ps.SupplierId }).ToArray();
-
-           pIDs = context.Suppliers.Join(context.ProductsSuppliers, s => s.SupplierId, p => p.SupplierId, (s, p) => new { p.ProductId, s.SupplierId })
-                .Join(context.Products, ps => ps.ProductId, p => p.ProductId, (ps, p) => new { ps.ProductId, p.ProdName,ps.SupplierId }).Where(ps => ps.SupplierId == selectedSupplier.SupplierId).Select(p=>p.ProdName).ToArray();
-            
-                listBoxProducts.Items.AddRange(pIDs);
+            InitializeComponent();
         }
 
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
-            //ListBox mainListBoxSuppProd = new ListBox();
-            //mainListBoxSuppProd.DataSource = context.Products.ToList();
-            selectedSuppProd_Frm suppProd_Frm = new selectedSuppProd_Frm()
-            { prodSupp = pIDs,
-            supplierID=selectedSupplier.SupplierId};
-            suppProd_Frm.ShowDialog();
-            listBoxProducts.Items.Clear();
-            selectedSupplier = (Supplier)listBoxSuppliers.SelectedItem;
+            if (textNewSup != null & textNewSup.Text != "")
+            {
+                Supplier newSup = new Supplier()
+                {
+                    SupName = textNewSup.Text
+                };
+                context.Suppliers.Add(newSup);
+                context.SaveChanges();
+                DisplaySuppliers();
+                textNewSup.Text = "";
+            }
+        }
 
+        private void FormSuppliers_Load(object sender, EventArgs e)
+        {
+            listBoxSuppliers.Items.Clear();
+            DisplaySuppliers();
+        }
+        private void DisplaySuppliers()
+        {
 
-            //Object[] pIDs = context.Suppliers.Join(context.ProductsSuppliers, s => s.SupplierId, p => p.SupplierId, (s, p) => new { p.ProductId, s.SupplierId })
-            //    .Where(ps => ps.SupplierId == selectedSupplier.SupplierId).Select(ps => new { ps.ProductId, ps.SupplierId }).ToArray();
-
-            pIDs = context.Suppliers.Join(context.ProductsSuppliers, s => s.SupplierId, p => p.SupplierId, (s, p) => new { p.ProductId, s.SupplierId })
-                 .Join(context.Products, ps => ps.ProductId, p => p.ProductId, (ps, p) => new { ps.ProductId, p.ProdName, ps.SupplierId }).Where(ps => ps.SupplierId == selectedSupplier.SupplierId).Select(p => p.ProdName).ToArray();
-
-            listBoxProducts.Items.AddRange(pIDs);
-
-
-
-
-
+            listBoxSuppliers.DataSource = context.Suppliers.Select(s => s.SupName).ToList();
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            if (listBoxProducts.SelectedItem!=null)
+            if (listBoxSuppliers.SelectedItem != null)
             {
-                //ProductsSupplier removeProductsSupplier = new ProductsSupplier()
-                //{
-                //    SupplierId = selectedSupplier.SupplierId,
-                //    ProductId = context.Products.Where(p => p.ProdName == (string)listBoxProducts.SelectedItem).Select(p => p.ProductId).ToArray()[0]
-                //};
-                int pID = context.Products.Where(p => p.ProdName == (string)listBoxProducts.SelectedItem).Select(p => p.ProductId).ToArray()[0];
-                ProductsSupplier removeProductsSupplier = context.ProductsSuppliers.Where(s => s.SupplierId == selectedSupplier.SupplierId).Where(p => p.ProductId == pID).ToArray()[0];
-                context.ProductsSuppliers.Remove(removeProductsSupplier);
+                var remSup = context.Suppliers.Where(s => s.SupName == listBoxSuppliers.SelectedItem.ToString()).Single();
+                var remProdSup = context.ProductsSuppliers.Where(ps => ps.SupplierId == remSup.SupplierId).ToList();
+                context.Suppliers.Remove(remSup);
                 context.SaveChanges();
-                listBoxProducts.Items.Clear();
-                selectedSupplier = (Supplier)listBoxSuppliers.SelectedItem;
-
-
-                //Object[] pIDs = context.Suppliers.Join(context.ProductsSuppliers, s => s.SupplierId, p => p.SupplierId, (s, p) => new { p.ProductId, s.SupplierId })
-                //    .Where(ps => ps.SupplierId == selectedSupplier.SupplierId).Select(ps => new { ps.ProductId, ps.SupplierId }).ToArray();
-
-                pIDs = context.Suppliers.Join(context.ProductsSuppliers, s => s.SupplierId, p => p.SupplierId, (s, p) => new { p.ProductId, s.SupplierId })
-                     .Join(context.Products, ps => ps.ProductId, p => p.ProductId, (ps, p) => new { ps.ProductId, p.ProdName, ps.SupplierId }).Where(ps => ps.SupplierId == selectedSupplier.SupplierId).Select(p => p.ProdName).ToArray();
-
-                listBoxProducts.Items.AddRange(pIDs);
+                DisplaySuppliers();
 
             }
         }
