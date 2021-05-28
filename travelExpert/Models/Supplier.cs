@@ -29,7 +29,7 @@ namespace travelExpert.Models
         public override string ToString()
         {
             //return String.Format(frmdet, ProductCode, Name, Version, ReleaseDate);
-            return  SupName;
+            return SupName;
 
         }
     }
