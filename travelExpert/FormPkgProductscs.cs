@@ -51,7 +51,7 @@ namespace travelExpert
 
             }
 
-            comboBoxProducts.DataSource = context.Products.ToList();
+            comboBoxProducts.DataSource = allProducts;
             comboBoxProducts.DisplayMember = "ProdName";
             comboBoxProducts.ValueMember = "ProductId";
             //if (comboBoxProducts.SelectedItem != null)
@@ -68,7 +68,7 @@ namespace travelExpert
             Product selectedProd = (Product)comboBoxProducts.SelectedItem;
             int selectedProductId = selectedProd.ProductId;
 
-            listBoxSelectSupp.DataSource = context.ProductsSuppliers.Where(ps => ps.ProductId ==selectedProductId).ToList();
+            listBoxSelectSupp.DataSource = context.ProductsSuppliers.Where(ps => ps.ProductId ==selectedProductId).Join(context.Suppliers,p=>p.SupplierId,s=>s.SupplierId, (p,s)=>new Supplier{SupName=s.SupName}).ToList();
            
             //listBoxSelectSupp.Items.Add("Hello");
         }
