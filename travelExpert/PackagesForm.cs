@@ -49,11 +49,22 @@ namespace travelExpert
                 var r = formPkgProductscs.ShowDialog();
                 if (r == DialogResult.OK)
                 {
-                    MessageBox.Show("Success");
-                    pckProdSupp = formPkgProductscs.newPackagesProductsSupplier;
-                    context.PackagesProductsSuppliers.Add(pckProdSupp);
+                    try
+                    {
+                        MessageBox.Show("Success");
+                        pckProdSupp = formPkgProductscs.newPackagesProductsSupplier;
+                        context.PackagesProductsSuppliers.Add(pckProdSupp);
 
-                    context.SaveChanges();
+                        context.SaveChanges();
+                    }
+                    catch (DbUpdateException ex)
+                    {
+                        HandleDatabaseError(ex);
+                    }
+                    catch (Exception ex)
+                    {
+                        HandleGeneralError(ex);
+                    }
                 }
             };
         }

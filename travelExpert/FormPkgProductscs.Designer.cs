@@ -33,7 +33,6 @@ namespace travelExpert
             this.comboBoxProducts = new System.Windows.Forms.ComboBox();
             this.listBoxSelectSupp = new System.Windows.Forms.ListBox();
             this.btnAddProd = new System.Windows.Forms.Button();
-            this.btnRemPS = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -46,7 +45,6 @@ namespace travelExpert
             this.listBoxPkgProd.Name = "listBoxPkgProd";
             this.listBoxPkgProd.Size = new System.Drawing.Size(664, 130);
             this.listBoxPkgProd.TabIndex = 0;
-            this.listBoxPkgProd.SelectedIndexChanged += new System.EventHandler(this.listBoxPkgProd_SelectedIndexChanged);
             // 
             // comboBoxProducts
             // 
@@ -76,16 +74,6 @@ namespace travelExpert
             this.btnAddProd.UseVisualStyleBackColor = true;
             this.btnAddProd.Click += new System.EventHandler(this.btnAddProd_Click);
             // 
-            // btnRemPS
-            // 
-            this.btnRemPS.Location = new System.Drawing.Point(84, 339);
-            this.btnRemPS.Name = "btnRemPS";
-            this.btnRemPS.Size = new System.Drawing.Size(145, 60);
-            this.btnRemPS.TabIndex = 5;
-            this.btnRemPS.Text = "Remove Product/Supplier";
-            this.btnRemPS.UseVisualStyleBackColor = true;
-            this.btnRemPS.Click += new System.EventHandler(this.btnRemPS_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -111,7 +99,6 @@ namespace travelExpert
             this.ClientSize = new System.Drawing.Size(800, 473);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnRemPS);
             this.Controls.Add(this.btnAddProd);
             this.Controls.Add(this.listBoxSelectSupp);
             this.Controls.Add(this.comboBoxProducts);
@@ -131,7 +118,6 @@ namespace travelExpert
         private System.Windows.Forms.ComboBox comboBoxProducts;
         private System.Windows.Forms.ListBox listBoxSelectSupp;
         private System.Windows.Forms.Button btnAddProd;
-        private System.Windows.Forms.Button btnRemPS;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
     }
