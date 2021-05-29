@@ -47,30 +47,88 @@ namespace travelExpert
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (AddPackage)
+            if (IsValidData())
             {
-                MyNewPackage = new Package()
-                {
-                    PkgName = txtPackageName.Text,
-                    PkgStartDate = (startDateTimePicker.Value),
-                    PkgEndDate = (endDateTimePicker.Value),
-                    PkgDesc = txtDescription.Text,
-                    PkgBasePrice = Convert.ToDecimal(txtBasePrice.Text),
-                    PkgAgencyCommission = Convert.ToDecimal(txtComission.Text)
-                };
-            } 
-            else
-            {
-                MyNewPackage.PkgName = txtPackageName.Text;
-                MyNewPackage.PkgStartDate = (startDateTimePicker.Value);
-                MyNewPackage.PkgEndDate = (endDateTimePicker.Value);
-                MyNewPackage.PkgDesc = txtDescription.Text;
-                MyNewPackage.PkgBasePrice = Convert.ToDecimal(txtBasePrice.Text.Split("$")[1]);
-
-                MyNewPackage.PkgAgencyCommission = Convert.ToDecimal(txtComission.Text);
+                if (AddPackage)
+                    MyNewPackage = new Package();
+                LoadInputData();
+                DialogResult = DialogResult.OK;
             }
-                
-            DialogResult = DialogResult.OK;
+
+
+            //{
+            //    PkgName = txtPackageName.Text,
+            //    PkgStartDate = (startDateTimePicker.Value),
+            //    PkgEndDate = (endDateTimePicker.Value),
+            //    PkgDesc = txtDescription.Text,
+            //    PkgBasePrice = Convert.ToDecimal(txtBasePrice.Text),
+            //    PkgAgencyCommission = Convert.ToDecimal(txtComission.Text)
+            //};
+
+            //else
+            //{
+
+            //    MyNewPackage.PkgName = txtPackageName.Text;
+            //    MyNewPackage.PkgStartDate = (startDateTimePicker.Value);
+            //    MyNewPackage.PkgEndDate = (endDateTimePicker.Value);
+            //    MyNewPackage.PkgDesc = txtDescription.Text;
+            //    MyNewPackage.PkgBasePrice = Convert.ToDecimal(txtBasePrice.Text.Split("$")[1]);
+
+            //    MyNewPackage.PkgAgencyCommission = Convert.ToDecimal(txtComission.Text);
+            //}
+
+
+        }
+
+        private void LoadInputData()
+        {
+            MyNewPackage.PkgName = txtPackageName.Text;
+            MyNewPackage.PkgStartDate = (startDateTimePicker.Value);
+            MyNewPackage.PkgEndDate = (endDateTimePicker.Value);
+            MyNewPackage.PkgDesc = txtDescription.Text;
+            if (Decimal.TryParse(txtBasePrice.Text, out _))
+                MyNewPackage.PkgBasePrice = Convert.ToDecimal(txtBasePrice.Text);
+            else
+            { MyNewPackage.PkgBasePrice = Convert.ToDecimal(txtBasePrice.Text.Split("$")[1]); }
+
+            MyNewPackage.PkgAgencyCommission = Convert.ToDecimal(txtComission.Text);
+        }
+
+        private bool IsValidData()
+        {
+            bool success = true;
+            string errorMessage = "";
+
+            foreach (Control x in this.Controls)
+            { if (x is TextBox & x!=txtPackageID)
+                {
+                    errorMessage += Validator.IsPresent(x.Text, x.Tag.ToString());
+                }
+            }
+            errorMessage += Validator.IsDecimal(txtBasePrice.Text, txtBasePrice.Tag.ToString());
+            errorMessage += Validator.IsDecimal(txtComission.Text, txtComission.Tag.ToString());
+            if (errorMessage=="")
+                errorMessage += Validator.IsLessThanBase(txtComission.Text, txtBasePrice.Text, txtComission.Tag.ToString());
+            errorMessage += Validator.CheckDate(startDateTimePicker.Value, endDateTimePicker.Value);
+
+            //errorMessage += Validator.IsPresent(txtCode.Text, txtCode.Tag.ToString());
+            //errorMessage += Validator.IsMoreThanNumber(txtCode.Text, txtCode.Tag.ToString(), 10);
+            //errorMessage += Validator.IsPresent(txtName.Text, txtName.Tag.ToString());
+            //errorMessage += Validator.IsMoreThanNumber(txtName.Text, txtName.Tag.ToString(), 50);
+            //errorMessage += Validator.IsPresent(txtVersion.Text, txtVersion.Tag.ToString());
+            //errorMessage += Validator.IsDecimal(txtVersion.Text, txtVersion.Tag.ToString());
+            //errorMessage += Validator.IsDecimalLength(txtVersion.Text, txtVersion.Tag.ToString());
+            //errorMessage += Validator.IsPresent(txtDate.Text, txtDate.Tag.ToString());
+            //errorMessage += Validator.IsDate(txtDate.Text, txtDate.Tag.ToString());
+
+
+            if (errorMessage != "")
+            {
+                success = false;
+                MessageBox.Show(errorMessage, "Entry Error");
+            }
+            return success;
         }
     }
+   
 }

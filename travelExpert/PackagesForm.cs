@@ -68,22 +68,28 @@ namespace travelExpert
 
         private void btnEditPackage_Click(object sender, EventArgs e)
         {
-            FormNewPackage formNewPackage = new FormNewPackage()
-            { MyNewPackage = (Package)listBoxPackages.SelectedItem,
-            AddPackage = false
-            
-            };
-            
-            var r = formNewPackage.ShowDialog();
-            if (r == DialogResult.OK)
+            if (listBoxPackages.SelectedItem != null)
             {
-                package = formNewPackage.MyNewPackage;
-                context.Packages.Update(package);
-                context.SaveChanges();
-                MessageBox.Show("Entry Data Saved!");
-                // listBoxPackages.Items.Clear();
-                listBoxPackages.DataSource = context.Packages.ToList();
+                FormNewPackage formNewPackage = new FormNewPackage()
+                {
+                    MyNewPackage = (Package)listBoxPackages.SelectedItem,
+                    AddPackage = false
+
+                };
+
+                var r = formNewPackage.ShowDialog();
+                if (r == DialogResult.OK)
+                {
+                    package = formNewPackage.MyNewPackage;
+                    context.Packages.Update(package);
+                    context.SaveChanges();
+                    MessageBox.Show("Entry Data Saved!");
+                    // listBoxPackages.Items.Clear();
+                    listBoxPackages.DataSource = context.Packages.ToList();
+                }
             }
+            else
+            { MessageBox.Show("Please select a package", "Select Package"); }
         }
         private void btnRemovePackage_Click(object sender, EventArgs e)
         {
