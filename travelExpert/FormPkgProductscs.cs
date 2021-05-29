@@ -19,6 +19,7 @@ namespace travelExpert
         public Supplier[] suppliers;
         public string[] prodSupp;
         public PackagesProductsSupplier newPackagesProductsSupplier;
+        public PackagesProductsSupplier selectedPackagesProductsSupplier;
         public int selectedProductId;
 
         public FormPkgProductscs()
@@ -89,6 +90,24 @@ namespace travelExpert
 
             listBoxPkgProd.Items.Add(comboBoxProducts.SelectedItem.ToString().PadRight(20) + listBoxSelectSupp.SelectedItem.ToString().PadRight(30));
             DialogResult = DialogResult.OK;
+        }
+
+        private void btnRemPS_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBoxPkgProd_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //selectedPackagesProductsSupplier = (PackagesProductsSupplier)listBoxPkgProd.SelectedItem;
+            string selectedItem = listBoxPkgProd.SelectedItem.ToString();
+            string[] newStrgArr=selectedItem.Split(" ",2,StringSplitOptions.RemoveEmptyEntries);
+            string pName = newStrgArr[0];
+            string sName = newStrgArr[1].Trim(' ');
+            Product prod = context.Products.Where(p => p.ProdName == pName).Single();
+            Supplier supp = context.Suppliers.Where(s => s.SupName == sName).Single();
+            ProductsSupplier ps = context.ProductsSuppliers.Where(ps => ps.ProductId == prod.ProductId).Where(ps => ps.SupplierId==supp.SupplierId).Single();
+            string modStrng = selectedItem.Replace(" ", "");
         }
     }
 }

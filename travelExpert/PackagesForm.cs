@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,12 +23,19 @@ namespace travelExpert
 
         public PackagesForm()
         {
+            context = new TravelExpertsContext();
             InitializeComponent();
         }
 
         private void PackagesForm_Load(object sender, EventArgs e)
         {
-            context = new TravelExpertsContext();
+            DisplayPackages();
+        }
+
+        private void DisplayPackages()
+        {
+            lblPkgHeader.Text= "Id".PadRight(5) + "Name".PadRight(20) + "Description".PadRight(50) + "Start Date".PadRight(25) + "End Date".PadRight(25)
+                + "Base Price".PadRight(15) + "Commission".PadRight(5);
             listBoxPackages.DataSource = context.Packages.ToList();
         }
 
@@ -57,12 +66,24 @@ namespace travelExpert
             var r = formNewPackage.ShowDialog();
             if (r == DialogResult.OK)
             {
-                package = formNewPackage.MyNewPackage;
-                context.Packages.Add(package);
-                context.SaveChanges();
-                 MessageBox.Show("Entry Data Saved!");
-                // listBoxPackages.Items.Clear();
-                listBoxPackages.DataSource = context.Packages.ToList();
+                try
+                {
+                    package = formNewPackage.MyNewPackage;
+                    context.Packages.Add(package);
+                    context.SaveChanges();
+                    MessageBox.Show("Entry Data Saved!");
+                    // listBoxPackages.Items.Clear();
+                    listBoxPackages.DataSource = context.Packages.ToList();
+                }
+                catch (DbUpdateException ex)
+                {
+                    HandleDatabaseError(ex);
+                }
+                catch (Exception ex)
+                {
+                    HandleGeneralError(ex);
+                }
+
             }
         }
 
@@ -80,12 +101,28 @@ namespace travelExpert
                 var r = formNewPackage.ShowDialog();
                 if (r == DialogResult.OK)
                 {
-                    package = formNewPackage.MyNewPackage;
-                    context.Packages.Update(package);
-                    context.SaveChanges();
-                    MessageBox.Show("Entry Data Saved!");
-                    // listBoxPackages.Items.Clear();
-                    listBoxPackages.DataSource = context.Packages.ToList();
+                    try
+                    {
+                        package = formNewPackage.MyNewPackage;
+                        context.Packages.Update(package);
+                        context.SaveChanges();
+                        MessageBox.Show("Entry Data Saved!");
+                        // listBoxPackages.Items.Clear();
+                        DisplayPackages();
+                    }
+                    catch (DbUpdateConcurrencyException ex)
+                    {
+                        HandleConcurrencyError(ex);
+                    }
+                    catch (DbUpdateException ex)
+                    {
+                        HandleDatabaseError(ex);
+                    }
+                    catch (Exception ex)
+                    {
+                        HandleGeneralError(ex);
+                    }
+
                 }
             }
             else
@@ -95,14 +132,65 @@ namespace travelExpert
         {
             if (listBoxPackages.SelectedItem != null) 
             {
-                package = (Package)listBoxPackages.SelectedItem;
-                //var myPkg=context.Packages.Where(p)
-                var pkgProdSup = context.PackagesProductsSuppliers.Where(pps => pps.PackageId == package.PackageId).ToList();
-                //var pkgSupp=context.ProductsSuppliers.Join(pkgProdSup,)
-                context.Packages.Remove(package);
-                context.SaveChanges(true);
-                listBoxPackages.DataSource = context.Packages.ToList();
+                try
+                {
+                    package = (Package)listBoxPackages.SelectedItem;
+                    //var myPkg=context.Packages.Where(p)
+                    var pkgProdSup = context.PackagesProductsSuppliers.Where(pps => pps.PackageId == package.PackageId).ToList();
+                    //var pkgSupp=context.ProductsSuppliers.Join(pkgProdSup,)
+                    context.Packages.Remove(package);
+                    context.SaveChanges(true);
+                    DisplayPackages();
+                }
+                catch (DbUpdateConcurrencyException ex)
+                {
+                    HandleConcurrencyError(ex);
+                }
+                catch (DbUpdateException ex)
+                {
+                    HandleDatabaseError(ex);
+                }
+                catch (Exception ex)
+                {
+                    HandleGeneralError(ex);
+                }
             }
+        }
+        //3 functions defined below to handle database exceptions
+        private void HandleConcurrencyError(DbUpdateConcurrencyException ex)
+        {
+            ex.Entries.Single().Reload();
+
+            var state = context.Entry(package).State;
+            if (state == EntityState.Detached)
+            {
+                MessageBox.Show("Another user has deleted that package.",
+                    "Concurrency Error");
+            }
+            else
+            {
+                string message = "Another user has updated that package.\n" +
+                    "The current database values will be displayed.";
+                MessageBox.Show(message, "Concurrency Error");
+            }
+            this.DisplayPackages();
+        }
+
+        private void HandleDatabaseError(DbUpdateException ex)
+        {
+            string errorMessage = "";
+            var sqlException = (SqlException)ex.InnerException;
+            foreach (SqlError error in sqlException.Errors)
+            {
+                errorMessage += "ERROR CODE:  " + error.Number + " " +
+                                error.Message + "\n";
+            }
+            MessageBox.Show(errorMessage);
+        }
+
+        private void HandleGeneralError(Exception ex)
+        {
+            MessageBox.Show(ex.Message, ex.GetType().ToString());
         }
     }
 }
