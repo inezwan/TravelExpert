@@ -39,7 +39,8 @@ namespace travelExpert.Models
         public override string ToString()
         {
             return PackageId.ToString().PadRight(5) + PkgName.PadRight(20) + PkgDesc.PadRight(50) + PkgStartDate.ToString().PadRight(25) + PkgEndDate.ToString().PadRight(25)
-                + PkgBasePrice.ToString("C2").PadRight(10) + PkgAgencyCommission.ToString().PadRight(5);
+                + PkgBasePrice.ToString("C2").PadRight(15) + PkgAgencyCommission.ToString().PadRight(5);
         }
+
     }
 }

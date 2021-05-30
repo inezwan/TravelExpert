@@ -19,6 +19,7 @@ namespace travelExpert
         public Supplier[] suppliers;
         public string[] prodSupp;
         public PackagesProductsSupplier newPackagesProductsSupplier;
+        public PackagesProductsSupplier selectedPackagesProductsSupplier;
         public int selectedProductId;
 
         public FormPkgProductscs()
@@ -90,5 +91,9 @@ namespace travelExpert
             listBoxPkgProd.Items.Add(comboBoxProducts.SelectedItem.ToString().PadRight(20) + listBoxSelectSupp.SelectedItem.ToString().PadRight(30));
             DialogResult = DialogResult.OK;
         }
+
+      
+
+      
     }
 }

@@ -118,6 +118,7 @@ namespace travelExpert.Models
                 entity.HasOne(d => d.ProductSupplier)
                     .WithMany(p => p.BookingDetails)
                     .HasForeignKey(d => d.ProductSupplierId)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_BookingDetails_Products_Suppliers");
 
                 entity.HasOne(d => d.Region)
@@ -207,7 +208,6 @@ namespace travelExpert.Models
                 entity.HasOne(d => d.ProductSupplier)
                     .WithMany(p => p.PackagesProductsSuppliers)
                     .HasForeignKey(d => d.ProductSupplierId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("Packages_Products_Supplie_FK01");
             });
 

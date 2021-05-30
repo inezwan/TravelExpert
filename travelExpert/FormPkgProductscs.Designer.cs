@@ -33,6 +33,8 @@ namespace travelExpert
             this.comboBoxProducts = new System.Windows.Forms.ComboBox();
             this.listBoxSelectSupp = new System.Windows.Forms.ListBox();
             this.btnAddProd = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // listBoxPkgProd
@@ -57,14 +59,14 @@ namespace travelExpert
             // 
             this.listBoxSelectSupp.FormattingEnabled = true;
             this.listBoxSelectSupp.ItemHeight = 18;
-            this.listBoxSelectSupp.Location = new System.Drawing.Point(386, 176);
+            this.listBoxSelectSupp.Location = new System.Drawing.Point(382, 197);
             this.listBoxSelectSupp.Name = "listBoxSelectSupp";
-            this.listBoxSelectSupp.Size = new System.Drawing.Size(282, 202);
+            this.listBoxSelectSupp.Size = new System.Drawing.Size(345, 202);
             this.listBoxSelectSupp.TabIndex = 2;
             // 
             // btnAddProd
             // 
-            this.btnAddProd.Location = new System.Drawing.Point(122, 269);
+            this.btnAddProd.Location = new System.Drawing.Point(84, 257);
             this.btnAddProd.Name = "btnAddProd";
             this.btnAddProd.Size = new System.Drawing.Size(145, 60);
             this.btnAddProd.TabIndex = 4;
@@ -72,11 +74,31 @@ namespace travelExpert
             this.btnAddProd.UseVisualStyleBackColor = true;
             this.btnAddProd.Click += new System.EventHandler(this.btnAddProd_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(81, 162);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(128, 18);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Select product:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(382, 162);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(136, 18);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Select supplier:";
+            // 
             // FormPkgProductscs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 473);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAddProd);
             this.Controls.Add(this.listBoxSelectSupp);
             this.Controls.Add(this.comboBoxProducts);
@@ -86,6 +108,7 @@ namespace travelExpert
             this.Text = "FormPkgProductscs";
             this.Load += new System.EventHandler(this.FormPkgProductscs_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -95,5 +118,7 @@ namespace travelExpert
         private System.Windows.Forms.ComboBox comboBoxProducts;
         private System.Windows.Forms.ListBox listBoxSelectSupp;
         private System.Windows.Forms.Button btnAddProd;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
